@@ -19,7 +19,9 @@ const createNotes = notes.map(note =>
 const App = () => (
     <div>
         <Header />
-        {createNotes}
+        <section className="notes-section">
+            {createNotes}
+        </section>
         <Footer />
     </div>
 );

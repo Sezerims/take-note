@@ -10,15 +10,17 @@ html {
 
 body {
     background: #eee;
-    padding: 0 1rem;
+}
+
+#root {
+    min-height: 100vh;
+    position: relative;
 }
 
 /* Header */
 
 header {
     background: linear-gradient(-90deg, #98DED9, #161D6F);
-
-    margin: auto -1rem;
     padding: 1rem 2rem;
 }
 
@@ -30,6 +32,12 @@ header h1 {
 
 /* Note */
 
+.notes-section {
+    padding: 1rem 1rem 3.375rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .note {
     background: #fff;
     border-radius: 0.5rem;
@@ -37,9 +45,12 @@ header h1 {
     box-shadow: 0.25rem 0.25rem 0.25rem rgba(175, 175, 175, 0.5);
 
     padding: 1rem;
-    width: 15rem;
     margin: 1rem;
-    float: left;
+
+    width: 12.5%;
+    min-width: 12.5rem;
+    max-width: 20rem;
+    flex-grow: 1;
 }
 
 .note h1 {
@@ -69,4 +80,66 @@ footer {
 
 footer p {
     color: rgb(175, 175, 175);
+}
+
+/* Media Queries */
+
+@media (max-width: 727px) {
+    .note {
+        max-width: unset;
+    }
+}
+
+@media (max-width: 495px) {
+    header {
+        text-align: center;
+    }
+}
+
+@media (max-width: 264px) {
+    header {
+        padding: 1rem;
+        text-align: left;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    .notes-section {
+        padding: 0 0 4.375rem;
+    }
+
+    .note {
+        margin: 0 0 1px;
+
+
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+
+
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .note h1,
+    .note p {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 0 1rem;
+        bottom: 1rem;
+    }
+}
+
+@media (max-width: 176px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .notes-section {
+        padding-bottom: 5.5625rem;
+    }
 }
