@@ -1,29 +1,52 @@
-import React from "react";
-
-// Import Components
+import React, {useState} from "react";
 import Header from "./Header";
+import TakeNote from "./TakeNote"
 import Note from "./Note";
 import Footer from "./Footer";
-
-// Import Constants
 import notes from "../notes";
 
-const createNotes = notes.map(note =>
-   <Note
-       key={note.key}
-       title={note.title}
-       content={note.content}
-   />
-);
+const App = () => {
 
-const App = () => (
-    <div>
-        <Header />
-        <section className="notes-section">
-            {createNotes}
-        </section>
-        <Footer />
-    </div>
-);
+    const [notesList, setNotesList] = useState(notes);
+
+    const addNote = (note) => {
+        setNotesList(prevNotesList => {
+            if(note.title.trim() !== "" || note.content.trim() !== "") {
+                return [...prevNotesList, note];
+            } else {
+                return prevNotesList;
+            }
+        });
+    };
+
+    const deleteNote = (id) => {
+        setNotesList(prevNotesList => {
+            return prevNotesList.filter((note, index) => {
+                return index !== id;
+            });
+        });
+    };
+
+    const createNotes = notesList.map((note, index) =>
+        <Note
+            key={index}
+            id={index}
+            onDelete={deleteNote}
+            title={note.title}
+            content={note.content}
+        />
+    );
+
+    return (
+        <div>
+            <Header/>
+            <section className="notes-section">
+                <TakeNote onAdd={addNote}/>
+                {createNotes}
+            </section>
+            <Footer/>
+        </div>
+    );
+};
 
 export default App;

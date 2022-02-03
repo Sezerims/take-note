@@ -20,7 +20,7 @@ body {
 /* Header */
 
 header {
-    background: linear-gradient(-90deg, #98DED9, #161D6F);
+    background: linear-gradient(90deg, #FF5714, #FFB800);
     padding: 1rem 2rem;
 }
 
@@ -30,13 +30,102 @@ header h1 {
     font-weight: 400;
 }
 
-/* Note */
+/* Notes Section */
 
 .notes-section {
     padding: 1rem 1rem 3.375rem;
     display: flex;
     flex-wrap: wrap;
 }
+
+/* Take Note */
+
+.take-note {
+    width: 100%;
+    padding: 1rem;
+}
+
+.new-note {
+    background: #fff;
+    border-radius: 0.5rem;
+
+    box-shadow: 0.25rem 0.25rem 0.25rem rgba(175, 175, 175, 0.5);
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.add-button,
+.delete-button {
+    border: none;
+
+    background: transparent;
+    color: #FF880A;
+
+    cursor: pointer;
+}
+
+.add-button,
+.delete-button {
+    background: transparent;
+}
+
+.add-button i {
+    font-size: 1.1rem;
+    display: inline-block;
+    transform: rotate(45deg);
+}
+
+.delete-button i {
+    font-size: 1.1rem;
+}
+
+.new-note-title,
+.new-note-content {
+    border: none;
+}
+
+.this {
+    display: block;
+}
+
+.new-note-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: inherit;
+    width: 100%;
+}
+
+.new-note-content {
+    font-size: 1.1rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.new-note-title::placeholder,
+.new-note-content::placeholder {
+    color: black;
+}
+
+.new-note-title:focus,
+.new-note-content:focus {
+    outline: none;
+}
+
+.new-note-title:focus::placeholder,
+.new-note-content:focus::placeholder {
+    color: rgb(175, 175, 175);
+}
+
+/* Note */
 
 .note {
     background: #fff;
@@ -55,13 +144,10 @@ header h1 {
 
 .note h1 {
     font-size: 1.1rem;
-    padding: 0 0 0.5rem;
 }
 
 .note p {
     font-size: 1.1rem;
-
-    padding: 0.5rem 0 0;
 
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -96,8 +182,19 @@ footer p {
     }
 }
 
-@media (max-width: 264px) {
+@media (max-width: 320px) {
+    .new-note-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 265px) {
+    body {
+        background: linear-gradient(90deg, #FF5714, #FFB800);
+    }
+
     header {
+        background: transparent;
         padding: 1rem;
         text-align: left;
     }
@@ -110,14 +207,28 @@ footer p {
         padding: 0 0 4.375rem;
     }
 
-    .note {
-        margin: 0 0 1px;
+    .take-note {
+        padding: 0;
+    }
 
+    .new-note {
+        margin: 0 1px 1px;
+
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .new-note-title,
+    .new-note-content {
+        font-size: 1rem;
+    }
+
+    .note {
+        margin: 0 1px 1px;
 
         width: 100%;
         min-width: unset;
         max-width: unset;
-
 
         border-radius: 0;
         box-shadow: none;
@@ -128,18 +239,17 @@ footer p {
         font-size: 1rem;
     }
 
+    .add-button i,
+    .delete-button i {
+        font-size: 1rem;
+    }
+
     footer {
         padding: 0 1rem;
         bottom: 1rem;
     }
-}
 
-@media (max-width: 176px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    .notes-section {
-        padding-bottom: 5.5625rem;
+    footer p {
+        color: #fff;
     }
 }
