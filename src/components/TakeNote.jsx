@@ -8,35 +8,29 @@ const TakeNote = (props) => {
 
     const keepNote = (event) => {
         const {name, value} = event.target;
-        setNote(prevState => {
-            if(name === "noteTitle") {
-                return (
-                    {
-                        title: value,
-                        content: prevState.content
-                    }
-                );
-            } else {
-                return (
-                    {
-                        title: prevState.title,
-                        content: value
-                    }
-                );
+        setNote(prevNote =>
+            name === "noteTitle" ? {
+                title: value,
+                content: prevNote.content
+            } : {
+                title: prevNote.title,
+                content: value
             }
+        );
+    }
+
+    const submitNote = (event) => {
+        props.onAdd(note);
+        setNote({
+            title: "",
+            content: ""
         });
+        event.preventDefault();
     }
 
     return (
         <div className="take-note">
-            <form onSubmit={(event) => {
-                props.onAdd(note);
-                setNote({
-                    title: "",
-                    content: ""
-                });
-                event.preventDefault();
-            }} className="new-note">
+            <form onSubmit={submitNote} className="new-note">
                 <div className="note-header">
                     <input onChange={keepNote} name="noteTitle" value={note.title} className="new-note-title" type="text" placeholder="New Note Title" autoComplete="off" />
                     <button type="submit" className="add-button" tabIndex="-1" ><i className="bi bi-x-lg" /></button>
