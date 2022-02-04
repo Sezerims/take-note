@@ -73,21 +73,6 @@ header h1 {
     cursor: pointer;
 }
 
-.add-button,
-.delete-button {
-    background: transparent;
-}
-
-.add-button i {
-    font-size: 1.1rem;
-    display: inline-block;
-    transform: rotate(45deg);
-}
-
-.delete-button i {
-    font-size: 1.1rem;
-}
-
 .new-note-title,
 .new-note-content {
     border: none;
@@ -236,11 +221,6 @@ footer p {
 
     .note h1,
     .note p {
-        font-size: 1rem;
-    }
-
-    .add-button i,
-    .delete-button i {
         font-size: 1rem;
     }
 

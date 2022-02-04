@@ -1,4 +1,8 @@
 import React, {useState} from "react";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
 
 const TakeNote = (props) => {
     const [note, setNote] = useState({
@@ -33,7 +37,11 @@ const TakeNote = (props) => {
             <form onSubmit={submitNote} className="new-note">
                 <div className="note-header">
                     <input onChange={keepNote} name="noteTitle" value={note.title} className="new-note-title" type="text" placeholder="New Note Title" autoComplete="off" />
-                    <button type="submit" className="add-button" tabIndex="-1" ><i className="bi bi-x-lg" /></button>
+                    <Zoom in={true} >
+                        <button type="submit" className="add-button" tabIndex="-1" >
+                            <AddCircleOutlineIcon />
+                        </button>
+                    </Zoom>
                 </div>
                 <textarea onChange={keepNote} name="noteContent" value={note.content} className="new-note-content" cols="30" rows="5" placeholder="New Note Content" />
             </form>
