@@ -9,9 +9,9 @@ const Note = (props) => (
         <div className="note-header">
             <h1>{props.title}</h1>
             <Zoom in={true} >
-            <button onClick={() => props.onDelete(props.id)} className="delete-button">
-                <RemoveCircleOutlineIcon />
-            </button>
+                <button onClick={() => props.onDelete(props.id)} className="delete-button">
+                    <RemoveCircleOutlineIcon />
+                </button>
             </Zoom>
         </div>
         <p>{props.content}</p>

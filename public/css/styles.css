@@ -5,7 +5,7 @@
 }
 
 html {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 body {
@@ -26,7 +26,7 @@ header {
 
 header h1 {
     color: #fff;
-    font-family: "McLaren", cursive;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
 }
 
@@ -151,6 +151,7 @@ footer {
 
 footer p {
     color: rgb(175, 175, 175);
+    font-family: "Montserrat", sans-serif;
 }
 
 /* Media Queries */
