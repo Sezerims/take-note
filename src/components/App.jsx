@@ -11,7 +11,7 @@ const App = () => {
 
     const addNote = (note) => {
         setNotesList(prevNotesList => {
-            if(note.title.trim() !== "" || note.content.trim() !== "") {
+            if (note.title.trim() !== "" || note.content.trim() !== "") {
                 return [...prevNotesList, note];
             } else {
                 return prevNotesList;
@@ -32,6 +32,7 @@ const App = () => {
             key={index}
             id={index}
             onDelete={deleteNote}
+            // onEdit={editNote}
             title={note.title}
             content={note.content}
         />

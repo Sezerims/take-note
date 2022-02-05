@@ -17,6 +17,11 @@ body {
     position: relative;
 }
 
+:focus {
+    outline: none;
+    caret-color: #FF880A;
+}
+
 /* Header */
 
 header {
@@ -60,6 +65,7 @@ header h1 {
 .note-header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 1rem;
 }
 
@@ -78,15 +84,12 @@ header h1 {
     border: none;
 }
 
-.this {
-    display: block;
-}
-
 .new-note-title {
     font-size: 1.5rem;
     font-weight: bold;
     font-family: inherit;
     width: 100%;
+    padding-right: 1rem;
 }
 
 .new-note-content {
@@ -98,11 +101,6 @@ header h1 {
 .new-note-title::placeholder,
 .new-note-content::placeholder {
     color: black;
-}
-
-.new-note-title:focus,
-.new-note-content:focus {
-    outline: none;
 }
 
 .new-note-title:focus::placeholder,
@@ -127,11 +125,13 @@ header h1 {
     flex-grow: 1;
 }
 
-.note h1 {
+.note-title {
     font-size: 1.1rem;
+    width: 100%;
+    padding-right: 1rem;
 }
 
-.note p {
+.note-content {
     font-size: 1.1rem;
 
     white-space: pre-wrap;

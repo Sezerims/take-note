@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 
 const TakeNote = (props) => {
@@ -44,15 +42,17 @@ const TakeNote = (props) => {
                 {isExpanded &&
                     <div className="note-header">
                         <input onChange={keepNote} name="noteTitle" value={note.title} className="new-note-title"
-                               type="text" placeholder="New Note Title" autoComplete="off"/>
+                               type="text" placeholder="New Note Title" autoComplete="off" spellCheck="false" />
                         <Zoom in={isExpanded}>
                             <button type="submit" className="add-button" tabIndex="-1">
-                                <AddCircleOutlineIcon/>
+                                <AddCircleOutlineIcon />
                             </button>
                         </Zoom>
                     </div>
                 }
-                <textarea onFocus={expand} onChange={keepNote} name="noteContent" value={note.content} className="new-note-content" cols="30" rows={isExpanded ? 7 : 1} placeholder={isExpanded ? "New Note Content" : "Take Note!"} />
+                <textarea onFocus={expand} onChange={keepNote} name="noteContent" value={note.content}
+                          className="new-note-content" cols="30" rows={isExpanded ? 7 : 1}
+                          placeholder={isExpanded ? "New Note Content" : "Take Note!"} spellCheck="false" />
             </form>
         </div>
     );
