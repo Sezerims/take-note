@@ -5,7 +5,7 @@
 }
 
 html {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 body {
@@ -17,6 +17,11 @@ body {
     position: relative;
 }
 
+:focus {
+    outline: none;
+    caret-color: #FF880A;
+}
+
 /* Header */
 
 header {
@@ -26,7 +31,7 @@ header {
 
 header h1 {
     color: #fff;
-    font-family: "McLaren", cursive;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
 }
 
@@ -60,6 +65,7 @@ header h1 {
 .note-header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 1rem;
 }
 
@@ -73,28 +79,9 @@ header h1 {
     cursor: pointer;
 }
 
-.add-button,
-.delete-button {
-    background: transparent;
-}
-
-.add-button i {
-    font-size: 1.1rem;
-    display: inline-block;
-    transform: rotate(45deg);
-}
-
-.delete-button i {
-    font-size: 1.1rem;
-}
-
 .new-note-title,
 .new-note-content {
     border: none;
-}
-
-.this {
-    display: block;
 }
 
 .new-note-title {
@@ -102,6 +89,7 @@ header h1 {
     font-weight: bold;
     font-family: inherit;
     width: 100%;
+    padding-right: 1rem;
 }
 
 .new-note-content {
@@ -113,11 +101,6 @@ header h1 {
 .new-note-title::placeholder,
 .new-note-content::placeholder {
     color: black;
-}
-
-.new-note-title:focus,
-.new-note-content:focus {
-    outline: none;
 }
 
 .new-note-title:focus::placeholder,
@@ -142,11 +125,13 @@ header h1 {
     flex-grow: 1;
 }
 
-.note h1 {
+.note-title {
     font-size: 1.1rem;
+    width: 100%;
+    padding-right: 1rem;
 }
 
-.note p {
+.note-content {
     font-size: 1.1rem;
 
     white-space: pre-wrap;
@@ -166,6 +151,7 @@ footer {
 
 footer p {
     color: rgb(175, 175, 175);
+    font-family: "Montserrat", sans-serif;
 }
 
 /* Media Queries */
@@ -236,11 +222,6 @@ footer p {
 
     .note h1,
     .note p {
-        font-size: 1rem;
-    }
-
-    .add-button i,
-    .delete-button i {
         font-size: 1rem;
     }
 

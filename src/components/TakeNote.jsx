@@ -1,10 +1,18 @@
 import React, {useState} from "react";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import Zoom from '@mui/material/Zoom';
 
 const TakeNote = (props) => {
     const [note, setNote] = useState({
         title: "",
         content: ""
     });
+
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const expand = () => {
+        setIsExpanded(true);
+    }
 
     const keepNote = (event) => {
         const {name, value} = event.target;
@@ -31,11 +39,20 @@ const TakeNote = (props) => {
     return (
         <div className="take-note">
             <form onSubmit={submitNote} className="new-note">
-                <div className="note-header">
-                    <input onChange={keepNote} name="noteTitle" value={note.title} className="new-note-title" type="text" placeholder="New Note Title" autoComplete="off" />
-                    <button type="submit" className="add-button" tabIndex="-1" ><i className="bi bi-x-lg" /></button>
-                </div>
-                <textarea onChange={keepNote} name="noteContent" value={note.content} className="new-note-content" cols="30" rows="5" placeholder="New Note Content" />
+                {isExpanded &&
+                    <div className="note-header">
+                        <input onChange={keepNote} name="noteTitle" value={note.title} className="new-note-title"
+                               type="text" placeholder="New Note Title" autoComplete="off" spellCheck="false" />
+                        <Zoom in={isExpanded}>
+                            <button type="submit" className="add-button" tabIndex="-1">
+                                <AddCircleOutlineIcon />
+                            </button>
+                        </Zoom>
+                    </div>
+                }
+                <textarea onFocus={expand} onChange={keepNote} name="noteContent" value={note.content}
+                          className="new-note-content" cols="30" rows={isExpanded ? 7 : 1}
+                          placeholder={isExpanded ? "New Note Content" : "Take Note!"} spellCheck="false" />
             </form>
         </div>
     );
